@@ -1,7 +1,6 @@
 import React from "react";
-import chatgpt from "../../assets/chatgpt.png";
 
-const ProfileCard = ({ img, title, description }) => {
+const ProfileCard = ({ img, title, description, handle }) => {
   return (
     <div className="flex flex-col text-center m-4">
       <div className="h-full w-72 p-10 border-2 rounded-lg m-3">

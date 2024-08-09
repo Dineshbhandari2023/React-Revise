@@ -1,8 +1,8 @@
 import React from "react";
 import ProfileCard from "./ProfileCard";
-import chatgpt from "../../assets/chatgpt.png";
-import alexa from "../../assets/alexa.png";
-import siri from "../../assets/siri.jpeg";
+import chatgpt from "../../assets/first/chatgpt.png";
+import alexa from "../../assets/first/alexa.png";
+import siri from "../../assets/first/siri.jpeg";
 
 const FirstApp = () => {
   return (
@@ -14,17 +14,20 @@ const FirstApp = () => {
         <ProfileCard
           img={chatgpt}
           title="Chat-Gpt"
+          handle="@dinesh"
           description=" Chat-GPT is a powerful AI model that enables users to ask questions,
           receive answers, and even generate detailed and long-form responses."
         />
         <ProfileCard
           img={alexa}
           title="Alexa"
+          handle="@alexa"
           description="Alexa is a Powerfull AI model that helps users to interact with various devices."
         />
         <ProfileCard
           img={siri}
           title="Siri"
+          handlle="@siri"
           description="Siri is a Powerfull AI model that helps users to interact with the IOS devises and it is the ios verison of Ai tool."
         />
       </div>
