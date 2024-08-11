@@ -1,5 +1,6 @@
 import FirstApp from "./components/First/FirstApp";
 import SecondApp from "./components/Second/SecondApp";
+import FourthApp from "./assets/search/FourthApp";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       <FirstApp />
       <h2 className="p-5">2- Second</h2>
       <SecondApp />
+      <h2>3- Third</h2>
+      <FourthApp />
     </div>
   );
 }

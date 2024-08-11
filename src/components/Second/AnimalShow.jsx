@@ -4,6 +4,7 @@ import animal2 from "../../assets/second/animal2.jpeg";
 import animal3 from "../../assets/second/animal3.jpeg";
 import animal4 from "../../assets/second/animal4.jpeg";
 import animal5 from "../../assets/second/animal5.jpeg";
+import heart from "../../assets/second/heart.jpg";
 
 const getRandomImage = () => {
   const animals = [animal1, animal2, animal3, animal4, animal5];
@@ -13,6 +14,11 @@ const getRandomImage = () => {
 
 const AnimalShow = ({ img }) => {
   const [animals, setAnimals] = useState([]);
+  const [clicks, setClicks] = useState(0);
+
+  const handleUsersClick = () => {
+    setClicks(clicks + 1);
+  };
 
   const handleClick = () => {
     setAnimals([...animals, getRandomImage()]);
@@ -35,12 +41,20 @@ const AnimalShow = ({ img }) => {
 
       <div className="grid grid-cols-7">
         {animals.map((animal, index) => (
-          <img
-            key={index}
-            src={animal}
-            alt={`animal`}
-            className="w-32 h-32 m-2"
-          />
+          <div>
+            <img
+              key={index}
+              src={animal}
+              alt={`animal`}
+              className="w-32 h-32 m-2 absolutely "
+              onClick={handleUsersClick}
+            />
+            <img
+              src={heart}
+              alt="heart"
+              style={{ width: 10 + 10 * clicks + "px" }}
+            />
+          </div>
         ))}
       </div>
       <button
