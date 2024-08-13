@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ImageContext } from "./FourthApp";
+import ImageShow from "./ImageShow";
 
-const ImageList = ({ images }) => {
+const ImageList = () => {
+  const { response, isLoading } = useContext(ImageContext);
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {images.map((image) => (
-        <div key={image.id}>
-          <img
-            src={image.urls.small}
-            alt={image.description || "Unsplash Image"}
-            className="w-full h-auto rounded-md"
-          />
-        </div>
-      ))}
+    <div className="flex flex-col ">
+      <h2 className="flex p-3 m-2 justify-center text-center text-2xl font-semibold">
+        Search for
+      </h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {response.map((data, key) => {
+          <ImageShow key={key} data={data} />;
+        })}
+      </div>
     </div>
   );
 };
