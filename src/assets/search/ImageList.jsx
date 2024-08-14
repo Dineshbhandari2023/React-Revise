@@ -1,20 +1,24 @@
 import React, { useContext } from "react";
 import { ImageContext } from "./FourthApp";
 import ImageShow from "./ImageShow";
+import Skeleton from "./Skeleton";
 
 const ImageList = () => {
-  const { response, isLoading } = useContext(ImageContext);
+  const { response, isLoading, searchImage } = useContext(ImageContext);
+
   return (
-    <div className="flex flex-col ">
-      <h2 className="flex p-3 m-2 justify-center text-center text-2xl font-semibold">
-        Search for
-      </h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {response.map((data, key) => {
-          <ImageShow key={key} data={data} />;
-        })}
+    <>
+      <h1 className="text-center mt-6 font-semibold text-3xl">
+        Results for {searchImage || "cat"}
+      </h1>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-10 max-w-7xl mx-auto px-4">
+        {isLoading ? (
+          <Skeleton item={12} />
+        ) : (
+          response.map((data, key) => <ImageShow key={key} data={data} />)
+        )}
       </div>
-    </div>
+    </>
   );
 };
 
